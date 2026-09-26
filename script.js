@@ -2096,7 +2096,8 @@ const listEl = document.getElementById('jobList');
 const tierKeys = Object.keys(tierMeta);
 
 // Guarded: the qualification explorer (qualTabs/jobList) only exists on the
-// home page now that Roadmaps/Mock Test/About Us are separate pages.
+// Jobs & Details page; the Roadmap cards live on the home page, and
+// Mock Test/About Us are their own separate pages.
 if (tabsEl && listEl){
   function renderJobs(tier){
     listEl.innerHTML = '';
