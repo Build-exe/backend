@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goal2Govt - Find Your Path to Success</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="Goal2Govt" class="logo-img">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="roadmap.html">Roadmaps</a></li>
+      <li><a href="#prep-section">Exam Prep</a></li>
+      <li><a href="mocktest.html">Mock Test</a></li>
+      <li><a href="jobsdetails.html">Jobs & Details</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+  </nav>
+  <div class="auth-area" id="authArea">
+    <button class="signup-btn" id="signupBtn">Sign Up</button>
+    <button class="signin-btn" id="authBtn">Sign In</button>
+    <div class="user-menu" id="userMenu">
+      <button class="user-menu-item" id="logoutBtn">Log Out</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Find Your Path to Success</h1>
+    <p>Get Personalized Career Roadmaps &amp; Exam Guidance</p>
+    <button class="get-started" onclick="window.location.href='jobsdetails.html'">Get Started</button>
+  </div>
+  <div class="hero-visual">
+    <div class="illustration">
+      <span>Personalized guidance for every qualification level — from 10th pass to B.Tech</span>
+      <span class="illustration-sub">It is a student-built platform</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Explore Your Career Options</h2>
+  <div class="options-grid">
+    <div class="option-card" id="card-government-jobs">
+      <div class="option-icon">🏛️</div>
+      <div class="option-body">
+        <h3>Government Jobs</h3>
+        <p>Explore by Qualification</p>
+      </div>
+      <div class="option-arrow">›</div>
+    </div>
+    <div class="option-card" id="card-banking-finance">
+      <div class="option-icon">💼</div>
+      <div class="option-body">
+        <h3>Banking &amp; Finance</h3>
+        <p>Explore Career Roadmaps</p>
+      </div>
+      <div class="option-arrow">›</div>
+    </div>
+    <div class="option-card" id="card-engineering-it">
+      <div class="option-icon">⚙️</div>
+      <div class="option-body">
+        <h3>Engineering &amp; IT</h3>
+        <p>Career Pathway Overview</p>
+      </div>
+      <div class="option-arrow">›</div>
+    </div>
+    <div class="option-card" id="card-healthcare-careers">
+      <div class="option-icon">❤️</div>
+      <div class="option-body">
+        <h3>Healthcare Careers</h3>
+        <p>Explore More Resources</p>
+      </div>
+      <div class="option-arrow">›</div>
+    </div>
+  </div>
+</section>
+
+<section id="prep-section">
+  <h2 class="section-title">Exam Preparation <span class="link">Dashboard</span></h2>
+  <div class="prep-grid">
+    <div class="prep-card" id="card-previous-papers">
+      <div class="prep-icon">⬇️</div>
+      <div class="prep-body">
+        <h3>Previous Year Papers</h3>
+        <p>PDF Files</p>
+      </div>
+    </div>
+    <div class="prep-card" id="card-ebooks">
+      <div class="prep-icon">📱</div>
+      <div class="prep-body">
+        <h3>E-Books &amp; Guides</h3>
+        <p>Essential Study Guides</p>
+      </div>
+    </div>
+    <div class="prep-card" id="card-career-tips">
+      <div class="prep-icon">💡</div>
+      <div class="prep-body">
+        <h3>Career Tips</h3>
+        <p>Expert Advice</p>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  &copy; 2026 Goal2Govt. Find Your Path to Success.
+</footer>
+
+<!-- Detail modal: tabbed sheet reused for government jobs, roadmap careers, category overviews and tips -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <div class="sheet">
+    <div class="sheet-sticky">
+      <div class="sheet-head" id="sheetHead">
+        <button class="close-btn" id="closeBtn" aria-label="Close">✕</button>
+        <span class="code" id="sheetCode"></span>
+        <h2 id="sheetTitle"></h2>
+        <div class="tier-label" id="sheetTier"></div>
+      </div>
+      <div class="section-tabs"></div>
+    </div>
+    <div class="sheet-body"></div>
+  </div>
+</div>
+
+<!-- Auth modal: Sign Up / Log In (client-side demo auth, stored in this browser only) -->
+<div class="overlay" id="authOverlay" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="sheet auth-sheet">
+    <button class="close-btn" id="authCloseBtn" aria-label="Close">✕</button>
+    <div class="auth-body">
+      <h2 id="authTitle">Welcome to Goal2Govt</h2>
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" data-authtab="login">Log In</button>
+        <button class="auth-tab-btn" data-authtab="signup">Sign Up</button>
+      </div>
+
+      <form id="loginForm" class="auth-form">
+        <label>Email</label>
+        <input type="email" id="loginEmail" required autocomplete="email">
+        <label>Password</label>
+        <input type="password" id="loginPassword" required autocomplete="current-password">
+        <p class="auth-error" id="loginError"></p>
+        <button type="submit" class="auth-submit">Log In</button>
+      </form>
+
+      <form id="signupForm" class="auth-form" style="display:none;">
+        <label>Full Name</label>
+        <input type="text" id="signupName" required autocomplete="name">
+        <label>Email</label>
+        <input type="email" id="signupEmail" required autocomplete="email">
+        <label>Password</label>
+        <input type="password" id="signupPassword" required autocomplete="new-password" minlength="6">
+        <label>Confirm Password</label>
+        <input type="password" id="signupConfirm" required autocomplete="new-password" minlength="6">
+        <p class="auth-error" id="signupError"></p>
+        <button type="submit" class="auth-submit">Create Free Account</button>
+      </form>
+
+      <p class="auth-disclaimer">Demo account system — your details are stored only in this browser, not on a server. Don't reuse a real password.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Timed mock exam — full screen, separate from the casual practice quiz -->
+<div class="overlay fullscreen" id="examOverlay" role="dialog" aria-modal="true" aria-labelledby="examJobTitle">
+  <div class="sheet exam-sheet">
+    <div class="exam-topbar">
+      <div class="exam-topbar-info">
+        <div class="exam-job-title" id="examJobTitle"></div>
+        <div class="exam-progress" id="examProgress"></div>
+      </div>
+      <div class="exam-timer" id="examTimer">--:--</div>
+      <button class="close-btn" id="examCloseBtn" aria-label="Close">✕</button>
+    </div>
+    <div class="exam-body" id="examBody"></div>
+  </div>
+</div>
+
+<script src="questions-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
